@@ -68,10 +68,14 @@
     color: #554D5E;
     margin-left: 25px;
     cursor: pointer;
+    padding: 5px 20px;
 }
 
 .askout_Header_extra > .MuiSvgIcon-root:hover {
     color: lightcoral;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: lightgray;
 }
 
 .askout_Header_extra > .MuiButton-root {
