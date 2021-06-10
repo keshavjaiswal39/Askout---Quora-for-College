@@ -27,3 +27,10 @@
     color: #554D5E;
 }
 
+.sidebarOption > .MuiSvgIcon-root {
+    color: #554D5E;
+    font-size: medium;
+    margin-left: 20px;
+    
+}
+
