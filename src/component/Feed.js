@@ -8,6 +8,12 @@ function Feed() {
         <div className="feed">
             <AskoutBox />
             <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
         </div>
     )
 }
