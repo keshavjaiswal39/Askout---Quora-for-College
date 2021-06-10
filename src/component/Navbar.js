@@ -9,7 +9,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import { Avatar, Button } from '@material-ui/core';
 import LanguageIcon from '@material-ui/icons/Language';
 
-
 function Navbar() {
     return (
         <div className="navbar">
