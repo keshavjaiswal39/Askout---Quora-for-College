@@ -6,6 +6,8 @@
     justify-content: center;
     height: 100vh;
     /* background: url("http://qsfs.fs.quoracdn.net/-4-images.home.illo_1920.png-26-e9e6fbe02d908942.png"); */
+    /* background: url("https://images.pexels.com/photos/1194420/pexels-photo-1194420.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"); */
+    background: url("https://3hwuuuxcz5o651g144s0kw10-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/G3M_Wheres_Waldo.jpg");
 }
 
 .login_container{
@@ -14,7 +16,7 @@
     padding: 20px;
     width: 700px;
     background-color: rgb(255,255,255);
-    border-radius: 10px;
+    border-radius: 30px;
 }
 
 .login_logo{
