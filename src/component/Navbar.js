@@ -9,8 +9,14 @@ import SearchIcon from '@material-ui/icons/Search';
 import { Avatar, Button } from '@material-ui/core';
 import LanguageIcon from '@material-ui/icons/Language';
 import "../css/Navbar.css";
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
+import { auth } from '../firebase';
 
 function Navbar() {
+
+    const user = useSelector(selectUser)
+
     return (
         <div className="askout_Header">
             <div className="askout_Header_logo">
@@ -41,7 +47,9 @@ function Navbar() {
 
             <div className="askout_Header_extra">
                 <div className="askout_Header_avatar">
-                    <Avatar />
+                    <Avatar 
+                        onClick = {() => auth.signOut()} src = {user.photo}
+                    />
                 </div>
                 <LanguageIcon />
                 <Button>Ask Questions</Button>

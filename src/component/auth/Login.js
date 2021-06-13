@@ -12,6 +12,8 @@ function Login() {
 
     const signIn = () => {
         auth.signInWithPopup(provider).catch((e) => alert(e.message));
+
+        console.log(auth);
     }
 
     const handleLogin = (e) => {
