@@ -103,3 +103,80 @@
     cursor: pointer;
     margin-left: 30px;
 }
+
+.modal_question {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .modal_question > h1 {
+    color: lightcoral;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .modal_question > p {
+    color: gray;
+    font-size: small;
+  }
+  
+  .modal_question > p > .name {
+    color: black;
+    font-weight: bold;
+  }
+  
+  .modal__answer {
+    display: flex;
+    padding-top: 20px;
+    flex: 1;
+  }
+  
+  .modal_answer > textarea {
+    width: 100%;
+    height: 200px;
+    padding: 5px;
+    font-size: 15px;
+    color: blue;
+  }
+  
+  .modal_button {
+    display: flex;
+    align-items: center;
+    margin-right: -20px;
+    border-top: 1px solid lightgray;
+  }
+  
+  .modal_button > .cancel {
+    margin-left: auto;
+    border: none;
+    margin-top: 5px;
+    outline: none;
+    color: gray;
+    font-weight: 500;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 33px;
+    cursor: pointer;
+  }
+
+  .modal_button > .cancel:hover{
+      color: red;
+  }
+
+  .modal_button > .add {
+    border: none;
+    outline: none;
+    margin-top: 5px;
+    background-color: lightcoral;
+    color: white;
+    font-weight: 700;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 33px;
+    cursor: pointer;
+  }
+
+  .modal_button > .add:hover{
+      transform: scale(1.1);
+  }
