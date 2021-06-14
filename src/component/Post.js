@@ -3,25 +3,27 @@ import { ArrowDownwardOutlined, ArrowUpwardOutlined, ChatBubbleOutlineOutlined, 
 import React from 'react'
 import '../css/Post.css'
 
-function Post() {
+function Post( {id,question,image,timestamp,askoutUser} ) {
     return (
         <div className="post">
             <div className="post_info">
-                <Avatar />
-                <h5>Username</h5>
-                <small>TimeStamp</small>
+                <Avatar 
+                    src = {askoutUser.photo}
+                />
+                <h5>{askoutUser.displayName ? askoutUser.displayName : askoutUser.email}</h5>
+                <small>{new Date(timestamp?.toDate()).toLocaleString()}</small>
             </div>
 
             <div className="post_body">
                 <div className="post_question">
-                    <p>Question</p>
+                    <p>{question}</p>
                     <button className="post_btnAnswer">Answer</button>
                 </div>
                 <div className="post_answer">
                     <p></p>
                 </div>
                 <img
-                    src="https://qph.fs.quoracdn.net/main-qimg-0dac75650f5a3ef37399dcbb40a6ff56"
+                    src={image}
                     alt=""
                 />
             </div>

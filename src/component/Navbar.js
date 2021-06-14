@@ -30,13 +30,14 @@ function Navbar() {
         setOpenModal(false)
 
         db.collection('questions').add({
-            question: input.anchor,
+            question: input,
+            imageUrl: inputUrl,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             user: user
         })
 
-        setInput("")
-        setInputUrl("")
+        setInput("");
+        setInputUrl("");
     }
 
     return (
