@@ -49,16 +49,22 @@
     width: 100%;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 .post_question > .post_btnAnswer {
     margin-left: auto;
     outline: none;
     border: none;
-    background-color: blue;
+    background-color: lightcoral;
     color: white;
     border-radius: 30px;
     padding: 10px;
+}
+
+.post_question > .post_btnAnswer:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .post_footer {
@@ -126,7 +132,7 @@
     font-weight: bold;
   }
   
-  .modal__answer {
+  .modal_answer {
     display: flex;
     padding-top: 20px;
     flex: 1;
@@ -137,7 +143,7 @@
     height: 200px;
     padding: 5px;
     font-size: 15px;
-    color: blue;
+    color: lightcoral;
   }
   
   .modal_button {
