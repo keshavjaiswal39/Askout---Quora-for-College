@@ -11,13 +11,33 @@ import LanguageIcon from '@material-ui/icons/Language';
 import "../css/Navbar.css";
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
-import { auth } from '../firebase';
+import db, { auth } from '../firebase';
 import Modal from 'react-modal';
+import { ExpandMore, Link } from '@material-ui/icons';
+import { Input } from '@material-ui/core';
+import firebase from 'firebase'
 
 function Navbar() {
 
     const user = useSelector(selectUser);
-    const [openModal, setOpenModal] = useState(false)
+    const [openModal, setOpenModal] = useState(false);
+    const [input, setInput] = useState("");
+    const [inputUrl, setInputUrl] = useState("");;
+
+    const handleQuestion = (e) => {
+        e.preventDefault()
+
+        setOpenModal(false)
+
+        db.collection('questions').add({
+            question: input.anchor,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            user: user
+        })
+
+        setInput("")
+        setInputUrl("")
+    }
 
     return (
         <div className="askout_Header">
@@ -59,15 +79,58 @@ function Navbar() {
                     isOpen = {openModal}
                     onRequestClose = {() => setOpenModal(false)}
                     shouldCloseOnOverlayClick = {false}
+                    style = {{
+                        overlay: {
+                            width: 700,
+                            height: 600,
+                            backgroundColor: "rgba(0,0,0,0.8)",
+                            zIndex: "1000",
+                            top: "50%",
+                            left: "50%",
+                            marginTop: "-300px",
+                            marginLeft: "-350px",
+                            borderRadius: "20px"
+                        },                        
+                    }}
                 >
                     <div className="modal_title">
                         <h5>Add Questions</h5>
-                        <div className="modal_info">
-                            <p>Modal Body</p>
+                        <h5>Share Link</h5>
+                    </div>
+                    <div className="modal_info">
+                        <Avatar
+                            className="avatar"
+                            src={user.photo}
+                        />
+                        <p>{user.displayName ? user.displayName : user.email} asked</p>
+                        <div className="modal_scope">
+                            <PeopleAltOutlinedIcon/>
+                            <p>Public</p>
+                            <ExpandMore/>
                         </div>
-                        <button onClick={() => setOpenModal(false)}>
-                            Cancel
-                        </button>
+                    </div>
+                    <div className="modal_field">
+                        <Input
+                            required
+                            value={input}
+                            onChange = {(e) => setInput(e.target.value)}
+                            type="text"
+                            placeholder="Ask your question with 'What', 'How', 'Why', etc "
+                        />
+                        <div className="modal_fieldLink">
+                            <Link />
+                            <input
+                                value={inputUrl}
+                                onChange = {(e) => setInputUrl (e.target.value)}
+                                placeholder="Optional: include a link that gives context"
+                            >
+
+                            </input>
+                        </div>
+                    </div>
+                    <div className="modal_buttons">
+                        <button onClick={() => setOpenModal(false)} className="cancel">Cancel</button>
+                        <button onClick={handleQuestion} type = "submit" className="add">Add Question</button>
                     </div>
                 </Modal>
             </div>
