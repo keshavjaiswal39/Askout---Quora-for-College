@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import logo from '../images/ask-out logo.png';
 import HomeIcon from '@material-ui/icons/Home';
 import FeaturedPlayListOutlinedIcon from '@material-ui/icons/FeaturedPlayListOutlined';
@@ -12,10 +12,12 @@ import "../css/Navbar.css";
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
 import { auth } from '../firebase';
+import Modal from 'react-modal';
 
 function Navbar() {
 
-    const user = useSelector(selectUser)
+    const user = useSelector(selectUser);
+    const [openModal, setOpenModal] = useState(false)
 
     return (
         <div className="askout_Header">
@@ -52,7 +54,22 @@ function Navbar() {
                     />
                 </div>
                 <LanguageIcon />
-                <Button>Ask Questions</Button>
+                <Button onClick = {() => setOpenModal(true)}>Ask Questions</Button>
+                <Modal 
+                    isOpen = {openModal}
+                    onRequestClose = {() => setOpenModal(false)}
+                    shouldCloseOnOverlayClick = {false}
+                >
+                    <div className="modal_title">
+                        <h5>Add Questions</h5>
+                        <div className="modal_info">
+                            <p>Modal Body</p>
+                        </div>
+                        <button onClick={() => setOpenModal(false)}>
+                            Cancel
+                        </button>
+                    </div>
+                </Modal>
             </div>
         </div>
     )
